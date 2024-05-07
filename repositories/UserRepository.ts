@@ -13,13 +13,13 @@ class UserRepository {
     }
 
     static async login(auth: Auth){
-        const sql = 'SELECT password FROM users WHERE email=?';
+        const sql = 'SELECT id, password FROM users WHERE email=?';
         const values = [auth.email];
         const result: any = await db.execute(sql, values);
         if (result[0].length > 0){
           const isPasswordValid = await bcrypt.compare(auth.password, result[0][0].password);
           if (isPasswordValid){
-            return {logged: true, status: "Successful authentication"}
+            return {logged: true, status: "Successful authentication", id: result[0][0].id}
           }
           return {logged: false, status: "Invalid username or password" };
         }

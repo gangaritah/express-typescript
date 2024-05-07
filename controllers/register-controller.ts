@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import User from '../Dto/UserDto';
 import UserService from '../services/UserServices';
 
+
 let register = async (req: Request, res: Response) => {
   try {
     const {
