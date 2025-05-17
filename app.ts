@@ -14,7 +14,7 @@ app.use('/register', register);
 app.use('/auth', auth);
 app.use('/profile', profile);
 
-const PORT = process.env.PORT || 10101;
+const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
   console.log("Servidor ejecutándose en el puerto: ", PORT);
